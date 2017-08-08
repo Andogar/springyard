@@ -13,7 +13,9 @@
 </div>
 <h1>List of current customers</h1>
 <h3>Click <a href="/new_customer">here</a> to add a new customer.</h3>
+
 <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admins-only">Admins Only</a>
+
 <div th:each="customer : ${customers}" class="customer-card">
     <p>Customer name: <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span></p>
     <p>Customer ID: <a th:href="@{'/customers/' + ${customer.id}}"><span th:text="${customer.id}"></span></a></p>
