@@ -5,6 +5,7 @@ import com.example.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,5 +45,15 @@ public class MainController {
         customerService.add(customer);
 
         return "redirect:/customers";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping("/admins-only")
+    public String adminsOnly() {
+        return "admins_only";
     }
 }
