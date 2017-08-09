@@ -52,6 +52,11 @@ public class MainController {
         return "login";
     }
 
+    @RequestMapping("/loggedout")
+    String logout(Model model) {
+        return "customers";
+    }
+
     @RequestMapping("/admins-only")
     public String adminsOnly() {
         return "admins_only";
