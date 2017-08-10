@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8" />
+    <title>Customers</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<h1>List of current customers</h1>
+<h3>Click <a href="/new_customer">here</a> to add a new customer.</h3>
+
+<a sec:authorize="hasRole('ROLE_ADMIN')" href="/admins-only">Admins Only</a>
+
+<div th:each="customer : ${customers}" class="customer-card">
+    <p>Customer name: <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span></p>
+    <p>Customer ID: <a th:href="@{'/customers/' + ${customer.id}}"><span th:text="${customer.id}"></span></a></p>
+</div>
+</body>
+</html>
