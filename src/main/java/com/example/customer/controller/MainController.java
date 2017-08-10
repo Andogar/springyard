@@ -54,7 +54,7 @@ public class MainController {
 
     @RequestMapping("/loggedout")
     String logout(Model model) {
-        return "customers";
+        return "redirect:/customers";
     }
 
     @RequestMapping("/admins-only")

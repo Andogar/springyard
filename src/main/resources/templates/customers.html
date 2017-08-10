@@ -6,13 +6,14 @@
     <title>Customers</title>
 </head>
 <body>
+<a sec:authorize="!isAuthenticated()" href="/login">Click here to log in</a>
 <div sec:authorize="isAuthenticated()">
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>
 </div>
 <h1>List of current customers</h1>
-<h3>Click <a href="/new_customer">here</a> to add a new customer.</h3>
+<h3 sec:authorize="hasRole('ROLE_ADMIN')">Click <a href="/new_customer">here</a> to add a new customer.</h3>
 
 <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admins-only">Admins Only</a>
 
