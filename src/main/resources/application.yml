@@ -4,9 +4,6 @@ spring:
     username: xqytjdhpmaiqmo
     password: 20ba9f5b95026caf247dec2260f69677bb93cba32d0a89c56a5cebec141d3de0
 
-server:
-  port: 3000
-
 github:
   client:
     clientId: 0943fe6f4ea2acc144fe
