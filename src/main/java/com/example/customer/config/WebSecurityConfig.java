@@ -98,6 +98,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return filter;
     }
 
+
     @Bean
     @ConfigurationProperties("facebook.client")
     public AuthorizationCodeResourceDetails facebook() {
