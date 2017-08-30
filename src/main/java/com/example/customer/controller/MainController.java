@@ -57,8 +57,4 @@ public class MainController {
         return "redirect:/customers";
     }
 
-    @RequestMapping("/admins-only")
-    public String adminsOnly() {
-        return "admins_only";
-    }
 }

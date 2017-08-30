@@ -1,16 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8" />
     <title>Customer Page</title>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
 </head>
 <body>
-<h1><span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span></h1>
-<h3>Click <a href="/customers">here</a> to go back to the list of customers.</h3>
-<div class="customer-card">
-    <p>Customer phone: <span th:text="${customer.phone}"></span></p>
-    <p>Customer email: <span th:text="${customer.email}"></span></p>
-    <p>Customer ID: <span th:text="${customer.id}"></span></p>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <p class="navbar-brand">Customers</p>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link home-link" href="/customers">Home<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="collapse navbar-collapse ml-auto" sec:authorize="isAuthenticated()">
+        <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Log Out</button>
+        </form>
+    </div>
+</nav>
+
+<div class="customer-list">
+<h1 class="list-header"><span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span></h1>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Customer ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="customer-card">
+        <th scope="row"><span th:text="${customer.phone}"></span></th>
+        <th scope="row"><span th:text="${customer.email}"></span></th>
+        <th scope="row"><span th:text="${customer.id}"></span></th>
+    </tr>
+    </tbody>
+</table>
 </div>
 </body>
 </html>

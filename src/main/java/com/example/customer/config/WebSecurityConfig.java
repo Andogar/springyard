@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -37,13 +38,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http
-            .csrf().disable()
             .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
             .and()
+                .csrf().disable()
                 .formLogin()
                 .loginPage("/login")
+                .successForwardUrl("/customers")
                 .permitAll()
             .and()
                 .logout()
@@ -52,6 +54,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
         // @formatter:on
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web
+                .ignoring()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/bootstrap/**", "/images/**", "/fonts/**", "/sass/**");
     }
 
     private Filter ssoFilter() {
