@@ -205,15 +205,13 @@ li.nav-item .btn {
 li.nav-item .btn-white {
   color: #46484a; }
 
-.cover-1 {
-  background: #2b2d34 url(../images/cover-bg-1.jpg) center;
+.index-bg {
+  background: url(../images/cover-bg-1.jpg);
   background-size: cover;
-  min-height: 50rem;
-  height: auto;
-  border-radius: 0;
-  width: 100%;
+}
+.cover-1 {
   color: #fff;
-  padding-top: 1rem; }
+}
   .cover-1 h1 {
     font-weight: 200; }
   .cover-1 p.lead {
@@ -225,48 +223,6 @@ li.nav-item .btn-white {
     min-height: 44rem;
     margin: 0 auto; }
 
-.cover-2 {
-  background: #2b2d34 url(../images/cover-bg-1.jpg) center;
-  background: #2b2d34;
-  background-size: cover;
-  min-height: 50rem;
-  height: auto;
-  border-radius: 0;
-  width: 100%;
-  color: #fff;
-  padding-top: 1rem; }
-  .cover-2 p.lead {
-    margin: 2rem auto;
-    color: rgba(255, 255, 255, 0.75); }
-  .cover-2 .cover-container {
-    display: table;
-    height: 100%;
-    min-height: 44rem;
-    margin: 0 auto; }
-
-.cover-5 {
-  background: #f7f7f8;
-  min-height: 40rem;
-  height: auto;
-  border-radius: 0;
-  width: 100%;
-  color: #333;
-  padding-top: 1rem; }
-  .cover-5 a.navbar-brand {
-    color: #000 !important; }
-  .cover-5 h1 {
-    color: #000;
-    font-weight: 200; }
-  .cover-5 p.lead {
-    margin: 2rem auto;
-    color: #696b6e;
-    font-family: "Droid Serif", Times, Georgia, serif;
-    font-style: italic; }
-  .cover-5 .cover-container {
-    display: table;
-    height: 100%;
-    min-height: 34rem;
-    margin: 0 auto; }
 
 .cover-inner {
   display: table-cell;
@@ -330,23 +286,6 @@ li.nav-item .btn-white {
   .cta-2 .btn {
     width: 100%; }
 
-.cta-4 {
-  background: #2b2d34 url(../images/cover-bg-3.jpg) center;
-  background: #2b2d34;
-  background-size: cover;
-  color: #fff;
-  padding: 5rem 0;
-  min-height: 50rem; }
-  .cta-4 p {
-    color: rgba(255, 255, 255, 0.75); }
-  .cta-4 .form-control-custom {
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff; }
-  .cta-4 .form-control-custom:focus {
-    border: none;
-    background: rgba(255, 255, 255, 0.3);
-    color: #fff; }
 
 .cta-5 {
   color: #46484a;
